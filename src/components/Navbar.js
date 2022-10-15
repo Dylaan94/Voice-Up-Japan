@@ -5,6 +5,11 @@ import CustomButton from "./CustomButton";
 
 // image imports
 
+const Content = {
+  jp: {},
+  en: {},
+};
+
 const Navbar = () => {
   return (
     <Nav>
