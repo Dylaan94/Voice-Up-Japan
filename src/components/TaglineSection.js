@@ -12,7 +12,7 @@ const content = {
   },
 };
 
-export default function TaglineSection() {
+export default function TaglineSection({lang = "jp"}) {
   return (
     <Root>
       <Tagline> {content.jp.tagline} </Tagline>

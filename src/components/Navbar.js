@@ -5,64 +5,146 @@ import CustomButton from "./CustomButton";
 
 // image imports
 
-const Content = {
-  jp: {},
-  en: {},
+import logo from "../images/vuj-logo.png";
+
+const content = {
+  jp: {
+    aboutUs: "私たちについて",
+    action: "私たちのアクション",
+    news: "ニュース",
+    ourVoice: "私たちの声",
+    resources: "リソース",
+    getInvolved: "参加",
+    donate: "寄付",
+  },
+  en: {
+    aboutUs: "Who We Are",
+    action: "What We Do",
+    news: "News",
+    ourVoice: "Our Voices",
+    resources: "Resources",
+    getInvolved: "Get Involved",
+    donate: "Donate",
+  },
 };
 
-const Navbar = () => {
+let selectedLang = {};
+
+const Navbar = ({ lang = "jp" }) => {
+  lang === "jp" ? (selectedLang = content.jp) : (selectedLang = content.en);
+
   return (
     <Nav>
-      <Links>
-        <StyledLink to="/">私たちについて</StyledLink>
-        <StyledLink to="/about">私たちのアクション</StyledLink>
-        <StyledLink to="/action">プレスリリース</StyledLink>
-        <StyledLink to="/ourVoice">私たちの声</StyledLink>
-        <StyledLink to="/resources">リソース</StyledLink>
-      </Links>
-      <Buttons>
-        <CustomButton
-          text="参加"
-          color="white"
-          borderColor="#DD5871"
-          fontSize="1.2em"
-          backgroundColor="#DD5871"
-        />
+      <Container>
+        <LogoLinksDiv>
+          <LogoDiv>
+            <StyledLink to="/">
+              <Logo src={logo} />
+            </StyledLink>
+          </LogoDiv>
+          <Links>
+            <StyledLink to="/about">{selectedLang.aboutUs}</StyledLink>
+            <StyledLink to="/action">{selectedLang.action}</StyledLink>
+            <StyledLink to="/news">{selectedLang.news}</StyledLink>
+            <StyledLink to="/ourVoice">{selectedLang.ourVoice} </StyledLink>
+            <StyledLink to="/resources">{selectedLang.resources}</StyledLink>
+          </Links>
+        </LogoLinksDiv>
+        <Buttons>
+          <CustomButton
+            text={selectedLang.getInvolved}
+            color="white"
+            borderColor="#DD5871"
+            fontSize="1.2em"
+            backgroundColor="#DD5871"
+          />
 
-        <CustomButton
-          text="寄付"
-          color="white"
-          borderColor="#44798E"
-          fontSize="1.2em"
-          backgroundColor="#44798E"
-        />
-      </Buttons>
+          <CustomButton
+            text={selectedLang.donate}
+            color="white"
+            borderColor="#44798E"
+            fontSize="1.2em"
+            backgroundColor="#44798E"
+          />
+        </Buttons>
+      </Container>
     </Nav>
   );
 };
 
 const Nav = styled.nav`
+  display: flex;
+  justify-content: center;
   position: sticky;
   top: 0;
+  background-color: white;
+  border-bottom: solid 1px #44798e;
+`;
+
+const Container = styled.div`
+  width: 70%;
+  min-height: 100px;
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
-  width: 100vw;
-  min-height: 100px;
-  background-color: white;
-  border-bottom: solid 2px #44798e;
+  justify-content: space-around;
+
+  @media screen and (max-width: 1480px) {
+    width: 90%;
+  }
+
+  // switch to mobile view
+  @media screen and (max-width: 1090px) {
+    flex-direction: column;
+  }
 `;
 
-const Links = styled.div``;
+const LogoLinksDiv = styled.div`
+  display: flex;
+  align-items: center;
+  width: 80%;
 
-const Buttons = styled.div``;
+  // switch to mobile view
+  @media screen and (max-width: 1090px) {
+    width: 100%;
+  }
+`;
+
+const LogoDiv = styled.div``;
+
+const Logo = styled.img`
+  height: 60px;
+`;
+
+const Links = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  @media screen and (max-width: 1090px) {
+    display: none;
+  }
+`;
+
+const Buttons = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  button {
+    margin: 5px;
+  }
+
+  // switch to mobile view
+  @media screen and (max-width: 1090px) {
+    width: 100%;
+    justify-content: center;
+
+  }
+`;
 
 const StyledLink = styled(Link)`
   padding: 15px;
   text-decoration: none;
   font-weight: 600;
-  font-size: 1em;
+  font-size: 0.9em;
   color: black;
 
   :visited {
@@ -70,7 +152,7 @@ const StyledLink = styled(Link)`
   }
 
   :hover {
-    font-size: 1.05em;
+    opacity: 0.7;
   }
 `;
 
