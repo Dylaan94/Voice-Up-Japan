@@ -51,9 +51,9 @@ const Navbar = ({ lang = "jp" }) => {
             <StyledLink to="/resources">{selectedLang.resources}</StyledLink>
           </Links>
           <HamburgerDiv>
-            <div class="bar1"></div>
-            <div class="bar2"></div>
-            <div class="bar3"></div>
+            <div className="bar1"></div>
+            <div className="bar2"></div>
+            <div className="bar3"></div>
           </HamburgerDiv>
         </LogoLinksDiv>
         <Buttons>
@@ -89,7 +89,7 @@ const Nav = styled.nav`
 
 const Container = styled.div`
   width: 70%;
-  min-height: 100px;
+  height: 8em;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -101,7 +101,7 @@ const Container = styled.div`
 
   // switch to mobile view
   @media screen and (max-width: 1090px) {
-    margin: 10px 0px;
+    margin: 1em 0vh;
     flex-direction: column;
   }
 `;
@@ -118,10 +118,12 @@ const LogoLinksDiv = styled.div`
   }
 `;
 
-const LogoDiv = styled.div``;
+const LogoDiv = styled.div`
+`;
 
 const Logo = styled.img`
-  height: 60px;
+  height: 4rem;
+
 `;
 
 const HamburgerDiv = styled.div`
@@ -142,10 +144,6 @@ const HamburgerDiv = styled.div`
   }
 `;
 
-const Hamburger = styled.img`
-  height: 50px;
-`;
-
 const Links = styled.div`
   display: flex;
   width: 100%;
@@ -159,7 +157,7 @@ const Buttons = styled.div`
   display: flex;
   justify-content: flex-start;
   button {
-    margin: 5px;
+    margin: 0.5em;
   }
 
   // switch to mobile view
@@ -173,17 +171,17 @@ const Buttons = styled.div`
   }
 
   @media screen and (max-width: 700px) {
-    button{
+    button {
       width: 50%;
     }
-  } 
+  }
 `;
 
 const StyledLink = styled(Link)`
-  padding: 15px;
+  padding: 2%;
   text-decoration: none;
   font-weight: 600;
-  font-size: 0.9em;
+  font-size: 1rem;
   color: black;
 
   :visited {

@@ -3,7 +3,7 @@ import Layout from "../components/Layout";
 
 // Component imports
 
-import TaglineSection from "../components/TaglineSection";
+import TaglineSection from "../components/Homepage/TaglineSection";
 
 const IndexPage = () => {
   return (
