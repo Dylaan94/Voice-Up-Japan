@@ -1,10 +1,11 @@
 import { Link } from "gatsby";
 import React from "react";
 import styled from "styled-components";
+
+// component imports
 import CustomButton from "./CustomButton";
 
 // image imports
-
 import logo from "../images/vuj-logo.png";
 
 const content = {
@@ -49,6 +50,11 @@ const Navbar = ({ lang = "jp" }) => {
             <StyledLink to="/ourVoice">{selectedLang.ourVoice} </StyledLink>
             <StyledLink to="/resources">{selectedLang.resources}</StyledLink>
           </Links>
+          <HamburgerDiv>
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+            <div class="bar3"></div>
+          </HamburgerDiv>
         </LogoLinksDiv>
         <Buttons>
           <CustomButton
@@ -78,7 +84,7 @@ const Nav = styled.nav`
   position: sticky;
   top: 0;
   background-color: white;
-  border-bottom: solid 1px #44798e;
+  //border-bottom: solid 1px #44798e;
 `;
 
 const Container = styled.div`
@@ -95,6 +101,7 @@ const Container = styled.div`
 
   // switch to mobile view
   @media screen and (max-width: 1090px) {
+    margin: 10px 0px;
     flex-direction: column;
   }
 `;
@@ -107,6 +114,7 @@ const LogoLinksDiv = styled.div`
   // switch to mobile view
   @media screen and (max-width: 1090px) {
     width: 100%;
+    justify-content: space-between;
   }
 `;
 
@@ -114,6 +122,28 @@ const LogoDiv = styled.div``;
 
 const Logo = styled.img`
   height: 60px;
+`;
+
+const HamburgerDiv = styled.div`
+  display: none;
+  // when switch to mobile mode, update display
+  @media screen and (max-width: 1090px) {
+    display: inline;
+  }
+
+  // css hamburger menu
+  .bar1,
+  .bar2,
+  .bar3 {
+    width: 40px;
+    height: 2px;
+    background-color: black;
+    margin: 10px 0px;
+  }
+`;
+
+const Hamburger = styled.img`
+  height: 50px;
 `;
 
 const Links = styled.div`
@@ -135,9 +165,18 @@ const Buttons = styled.div`
   // switch to mobile view
   @media screen and (max-width: 1090px) {
     width: 100%;
-    justify-content: center;
+    justify-content: space-around;
 
+    button {
+      width: 40%;
+    }
   }
+
+  @media screen and (max-width: 700px) {
+    button{
+      width: 50%;
+    }
+  } 
 `;
 
 const StyledLink = styled(Link)`
