@@ -29,9 +29,10 @@ const content = {
   },
 };
 
-let selectedLang = {};
+
 
 const Navbar = ({ lang = "jp" }) => {
+  let selectedLang = {};
   lang === "jp" ? (selectedLang = content.jp) : (selectedLang = content.en);
 
   return (
