@@ -1,13 +1,16 @@
 import React from "react";
 import styled from "styled-components";
+
+// component imports
 import Navbar from "./Navbar";
+import Footer from "./Footer";
 
 export default function Layout({ children }) {
   return (
     <Container>
       <Navbar />
       {children}
-      <h1>Footer</h1>
+      <Footer />
     </Container>
   );
 }

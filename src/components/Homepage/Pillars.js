@@ -9,11 +9,13 @@ const content = {
     header: "Our 4 Pillars",
     introText:
       "性暴力など、ジェンダーに基づく暴力の撤廃女性を政治の場面や意思決定の場へ若いリーダーをエンパワーし、ユースの声を意思決定の場にダイバーシティー&インクルージョン",
+    moreInfo: "詳細",
   },
   en: {
     header: "Our 4 Pillars",
     introText:
       "性暴力など、ジェンダーに基づく暴力の撤廃女性を政治の場面や意思決定の場へ若いリーダーをエンパワーし、ユースの声を意思決定の場にダイバーシティー&インクルージョン",
+    moreInfo: "More Info",
   },
 };
 
@@ -56,7 +58,7 @@ const IntroDiv = styled.div`
   width: 45%;
 
   @media screen and (max-width: 700px) {
-    width: 100%
+    width: 100%;
   }
 `;
 
@@ -69,7 +71,10 @@ const PillarDiv = styled.div`
   }
 `;
 
-const Header = styled.h2``;
+const Header = styled.h2`
+  font-size: 2em;
+  color: #555353;
+`;
 
 const Underline = styled.div`
   height: 0.4em;

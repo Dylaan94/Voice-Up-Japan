@@ -96,6 +96,7 @@ const Tagline = styled.h2`
   font-size: 2em;
   font-weight: 900;
   padding: 1em 0;
+  color: #555353;
 
   @media screen and (max-width: 700px) {
     color: white;

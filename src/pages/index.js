@@ -1,5 +1,5 @@
 import * as React from "react";
-import Layout from "../components/Layout";
+import Layout from "../components/LayoutComponents/Layout";
 import styled from "styled-components";
 
 // Component imports
@@ -9,12 +9,11 @@ import Pillars from "../components/Homepage/Pillars";
 const IndexPage = () => {
   return (
     <Layout>
-        <TaglineSection />
-        <Pillars />
+      <TaglineSection />
+      <Pillars />
     </Layout>
   );
 };
-
 
 export default IndexPage;
 

@@ -3,10 +3,10 @@ import React from "react";
 import styled from "styled-components";
 
 // component imports
-import CustomButton from "./CustomButton";
+import CustomButton from "../CustomButton";
 
 // image imports
-import logo from "../images/vuj-logo.png";
+import logo from "../../images/vuj-logo.png";
 
 const content = {
   jp: {
