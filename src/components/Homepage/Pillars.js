@@ -70,7 +70,6 @@ const IntroDiv = styled.div`
   @media screen and (min-width: 1090px) {
     width: 45%;
     display: flex;
-    align-items: flex-start;
   }
 `;
 

@@ -1,10 +1,49 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css/bundle";
-import { EffectCreative } from "swiper";
+import { EffectCreative, Pagination } from "swiper";
 import styled from "styled-components";
 
 export default function CustomSwiperPillar() {
+  const [page, setPage] = useState(0);
+  const [pillarData, setPillarData] = useState([]);
+
+  // graphql query
+  const query = `query{
+      pillarsCollection{
+        items {
+          pillarTitle
+        }
+      }
+    }`;
+
+  useEffect(() => {
+    window
+      .fetch(
+        `https://graphql.contentful.com/content/v1/spaces/${process.env.CONTENTFUL_SPACE_ID}/`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${process.env.CONTENTFUL_ACCESS_TOKEN}`,
+          },
+          body: JSON.stringify({ query }),
+        }
+      )
+      .then((response) => response.json())
+      .then(({ data, errors }) => {
+        if (errors) {
+          console.error(errors);
+        }
+
+        setPillarData(data.pillarsCollection.items);
+      });
+  }, []);
+
+  useEffect(() => {
+    console.log(pillarData);
+  }, [pillarData]);
+
   return (
     <CustomSwiper
       grabCursor={true}
@@ -23,21 +62,28 @@ export default function CustomSwiperPillar() {
       <SwiperSlide>
         <PillarOne>
           <Header>Pillar 1</Header>
+          {pillarData[0] ? <Text> {pillarData[0].pillarTitle} </Text> : <> </>}
         </PillarOne>
       </SwiperSlide>
       <SwiperSlide>
         <PillarTwo>
           <Header>Pillar 2</Header>
+          {pillarData[1] ? <Text> {pillarData[1].pillarTitle} </Text> : <> </>}
+          <Text> </Text>
         </PillarTwo>
       </SwiperSlide>
       <SwiperSlide>
         <PillarThree>
           <Header>Pillar 3</Header>
+          {pillarData[2] ? <Text> {pillarData[2].pillarTitle} </Text> : <> </>}
+          <Text> </Text>
         </PillarThree>
       </SwiperSlide>
       <SwiperSlide>
         <PillarFour>
           <Header>Pillar 4</Header>
+          {pillarData[3] ? <Text> {pillarData[3].pillarTitle} </Text> : <> </>}
+          <Text> </Text>
         </PillarFour>
       </SwiperSlide>
     </CustomSwiper>
@@ -45,12 +91,12 @@ export default function CustomSwiperPillar() {
 }
 
 const CustomSwiper = styled(Swiper)`
-  width: 50px;
-  height: 50px;
-  max-width: 600px;
-  max-height: 400px;
+  width: 100%;
+  aspect-ratio: 1/1;
   margin: 2em 0;
 `;
+
+const Text = styled.p``;
 
 const PillarOne = styled.div`
   height: 90%;
