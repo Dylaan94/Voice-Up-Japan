@@ -29,8 +29,6 @@ const content = {
   },
 };
 
-
-
 const Navbar = ({ lang = "jp" }) => {
   let selectedLang = {};
   lang === "jp" ? (selectedLang = content.jp) : (selectedLang = content.en);
@@ -85,6 +83,7 @@ const Nav = styled.nav`
   position: sticky;
   top: 0;
   background-color: white;
+  z-index: 100;
   //border-bottom: solid 1px #44798e;
 `;
 
@@ -119,12 +118,10 @@ const LogoLinksDiv = styled.div`
   }
 `;
 
-const LogoDiv = styled.div`
-`;
+const LogoDiv = styled.div``;
 
 const Logo = styled.img`
   height: 4rem;
-
 `;
 
 const HamburgerDiv = styled.div`

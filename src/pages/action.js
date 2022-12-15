@@ -1,7 +1,13 @@
-import React from 'react'
+import React from "react";
+
+// component imports
+
+import Layout from "../components/LayoutComponents/Layout";
 
 export default function action() {
   return (
-    <div>action</div>
-  )
+    <Layout>
+      <div> Action</div>
+    </Layout>
+  );
 }

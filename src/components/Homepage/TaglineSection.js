@@ -65,6 +65,7 @@ const Root = styled.div`
   @media screen and (max-width: 700px) {
     background-color: #2d536d;
     min-height: 60vh;
+    margin: 0;
   }
 `;
 
